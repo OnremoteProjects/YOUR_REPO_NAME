@@ -1,0 +1,13 @@
+{
+  "name": "ram-pyari-kundan-lal-mahajan-ngo-website",
+  "version": "1.0.0",
+  "description": "Static website for Ram Pyari Kundan Lal Mahajan NGO — tailoring & computer diploma programs, Drishti certification partnership.",
+  "private": true,
+  "scripts": {
+    "start": "npx serve . -l 3000",
+    "dev": "npx serve . -l 3000"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
