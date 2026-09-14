@@ -183,6 +183,7 @@ Derived from the client's reference screenshot (donation-NGO template, teal + sa
 <!-- <span>Yogender K. Gupta</span>
           <span>Ved Prakash Gupta</span>
           <span>Chanan Prakash Mahajan</span> -->
+<<<<<<< HEAD
 
 
 
@@ -838,3 +839,5 @@ I am <b>Ved Prakash Gupta, a native of Ali Beg, District Mirpur (PoK).</b>
 <script src="js/script.js"></script>
 </body>
 </html> -->
+=======
+>>>>>>> dbae53c09fff1198b69f11e62e909743621f354d

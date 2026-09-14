@@ -1,10 +1,15 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="hi">
+=======
+<html lang="en">
+>>>>>>> dbae53c09fff1198b69f11e62e909743621f354d
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Loading... | Ram Pyari Kundan Lal Mahajan NGO</title>
 <style>
+<<<<<<< HEAD
   * {
     box-sizing: border-box;
   }
@@ -35,10 +40,23 @@
     text-align: center;
     margin: auto; /* keeps it centered even when the page scrolls */
     animation: fadeInUp 1s ease-out;
+=======
+  /* Keeps the orange background and centers the logo */
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #ff9933; /* Orange/Saffron background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full screen height */
+    overflow: hidden;
+>>>>>>> dbae53c09fff1198b69f11e62e909743621f354d
   }
 
   /* Logo styling and pulse animation */
   .splash-logo {
+<<<<<<< HEAD
     width: 160px;
     height: auto;
     border-radius: 50%;
@@ -143,11 +161,23 @@
     font-size: 13px;
     margin-top: 4px;
     letter-spacing: 0.5px;
+=======
+    width: 180px; /* Adjust if you want the logo bigger or smaller */
+    height: auto;
+    animation: splashPulse 1.5s infinite ease-in-out;
+  }
+
+  @keyframes splashPulse {
+    0% { transform: scale(0.95); opacity: 0.9; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(0.95); opacity: 0.9; }
+>>>>>>> dbae53c09fff1198b69f11e62e909743621f354d
   }
 </style>
 </head>
 <body>
 
+<<<<<<< HEAD
   <div class="splash-wrapper">
     <img src="assets/images/image.png" alt="NGO Logo" class="splash-logo">
 
@@ -183,6 +213,17 @@
     setTimeout(function() {
       window.location.href = 'index.html';
     }, 6000);
+=======
+  <!-- Your Logo -->
+  <img src="assets/images/image.png" alt="NGO Logo" class="splash-logo">
+
+  <script>
+    // 5500 milliseconds = 5.5 seconds
+    // After the time is up, this redirects the browser to your main website page
+    setTimeout(function() {
+      window.location.href = 'index.html';
+    }, 2000);
+>>>>>>> dbae53c09fff1198b69f11e62e909743621f354d
   </script>
 
 </body>
