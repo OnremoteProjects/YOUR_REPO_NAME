@@ -60,11 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var nextBtn = carousel.querySelector(".carousel-next");
     var dotsWrap = carousel.querySelector(".carousel-dots");
     var index = 0;
-<<<<<<< HEAD
     var autoplayMs = 5000; // was commented out, causing a ReferenceError in resetAutoplay()
-=======
-    // var autoplayMs = 5000;
->>>>>>> dbae53c09fff1198b69f11e62e909743621f354d
     var timer = null;
 
     if (!track || slides.length === 0) return;
@@ -126,11 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var prevBtn = carousel.querySelector(".ngal-prev");
     var nextBtn = carousel.querySelector(".ngal-next");
     var index = 0;
-<<<<<<< HEAD
     var autoplayMs = 5000; // was commented out, causing a ReferenceError in resetAutoplay()
-=======
-    // var autoplayMs = 5000;
->>>>>>> dbae53c09fff1198b69f11e62e909743621f354d
     var timer = null;
 
     if (!slides.length) return;
