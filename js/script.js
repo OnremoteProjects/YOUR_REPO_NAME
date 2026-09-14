@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var nextBtn = carousel.querySelector(".carousel-next");
     var dotsWrap = carousel.querySelector(".carousel-dots");
     var index = 0;
-    // var autoplayMs = 5000;
+    var autoplayMs = 5000; // was commented out, causing a ReferenceError in resetAutoplay()
     var timer = null;
 
     if (!track || slides.length === 0) return;
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var prevBtn = carousel.querySelector(".ngal-prev");
     var nextBtn = carousel.querySelector(".ngal-next");
     var index = 0;
-    // var autoplayMs = 5000;
+    var autoplayMs = 5000; // was commented out, causing a ReferenceError in resetAutoplay()
     var timer = null;
 
     if (!slides.length) return;

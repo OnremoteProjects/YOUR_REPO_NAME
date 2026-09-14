@@ -8,24 +8,60 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-  /* Pull-quote style for tribute/legacy quotes, matches site tokens */
-  .quote-block {
-    position: relative;
-    margin-top: 22px !important;
-    padding: 20px 24px 20px 28px;
-    background: var(--cream-100);
-    border-left: 3px solid var(--saffron-500);
-    border-radius: var(--radius-sm);
+  /* ============ Foundation intro: full name + logo + USP ============ */
+  .foundation-intro {
+    text-align: center;
+    padding: 56px 0 48px;
   }
-  .quote-block b {
+  .foundation-intro .container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .foundation-intro .full-name {
+    margin: 0 0 22px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(22px, 3.4vw, 30px);
+    line-height: 1.35;
     color: var(--teal-900);
-    font-style: italic;
-    font-size: 16.5px;
-    line-height: 1.6;
+  }
+  .foundation-intro .full-name .short {
+    display: block;
+    margin-top: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--saffron-500);
+  }
+  .foundation-intro .intro-logo {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    margin: 0 auto 26px;
+    display: block;
+  }
+  .foundation-intro .usp-line {
+    margin: 0 auto;
+    max-width: 560px;
+    padding: 22px 28px;
+    background: var(--cream-100);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    font-size: 17px;
+    line-height: 1.9;
+    color: var(--teal-900);
+    font-weight: 600;
+  }
+  @media (max-width: 560px) {
+    .foundation-intro { padding: 40px 0 34px; }
+    .foundation-intro .intro-logo { width: 88px; height: 88px; margin-bottom: 20px; }
+    .foundation-intro .usp-line { padding: 18px 20px; font-size: 15px; }
   }
 
   /* ============ Names row under the Our Story photo ============ */
   .name-row {
+    container-type: inline-size;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -36,11 +72,16 @@
     border: 1px solid var(--line);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-card);
+    flex-wrap: nowrap;
+    overflow: hidden;
   }
   .name-row span {
+    flex: 1 1 0;
+    white-space: nowrap;
+    text-align: center;
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 15px;
+    font-size: clamp(7.5px, 2.17cqw, 15px);
     letter-spacing: 0.06em;
     color: var(--teal-900);
     text-transform: uppercase;
@@ -61,8 +102,15 @@
     background: var(--saffron-500);
   }
   @media (max-width: 560px) {
-    .name-row { padding: 10px 14px; }
-    .name-row span { font-size: 13px; }
+    .name-row {
+      flex-direction: row;
+      gap: 6px;
+      padding: 10px 8px;
+    }
+    .name-row span {
+      letter-spacing: 0.02em;
+    }
+    .name-row span:not(:last-child) { padding-right: 7px; }
   }
 
   /* ============ Two-photo stacked frame (Father's Legacy) ============ */
@@ -147,9 +195,7 @@
     .founder-photo-frame .caption { font-size: 13.5px; margin-top: 10px; }
   }
 
-  /* ============ Overlapping inset photo (Shri Kundan Lal) — sits on
-     top of the main founder photo's bottom-right corner, popping
-     partly outside the card, both names fully visible ============ */
+  /* ============ Overlapping inset photo (Shri Kundan Lal) ============ */
   .inline-photo-card {
     position: absolute;
     right: -30px;
@@ -209,135 +255,7 @@
     .inline-photo-card .caption { font-size: 10px; margin-top: 4px; }
   }
 
-  /* ============ Foundation hero header (Ram Pyari & Kundan Lal) ============
-     The names ARE the foundation's name — this section presents their
-     photo and names as the foundation's identity, right under the page
-     hero, so visitors immediately see who the foundation honours. */
-  .founders-hero {
-    position: relative;
-    padding: 64px 0 56px;
-    background:
-      radial-gradient(circle at 15% 20%, rgba(212,163,63,0.10), transparent 55%),
-      radial-gradient(circle at 85% 80%, rgba(15,76,73,0.08), transparent 55%),
-      var(--cream-100);
-    overflow: hidden;
-  }
-  .founders-hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: repeating-linear-gradient(135deg, rgba(15,76,73,0.035) 0 2px, transparent 2px 26px);
-    pointer-events: none;
-  }
-  .founders-hero-inner {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    max-width: 720px;
-    margin: 0 auto;
-  }
-  .founders-hero .eyebrow-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 7px 18px;
-    background: var(--white);
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    box-shadow: var(--shadow-card);
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 12.5px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--saffron-500);
-    margin-bottom: 18px;
-  }
-  .founders-hero .eyebrow-pill::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--saffron-500);
-  }
-  .founders-hero h2 {
-    margin: 0 0 6px;
-    font-size: clamp(26px, 4vw, 38px);
-    line-height: 1.2;
-  }
-  .founders-hero h2 a {
-    color: var(--teal-900);
-    text-decoration: none;
-    background-image: linear-gradient(var(--saffron-500), var(--saffron-500));
-    background-repeat: no-repeat;
-    background-position: 0 100%;
-    background-size: 0% 2px;
-    transition: background-size 0.25s ease;
-    padding-bottom: 2px;
-  }
-  .founders-hero h2 a:hover {
-    background-size: 100% 2px;
-  }
-  .founders-hero .tagline {
-    max-width: 480px;
-    margin: 0 auto 30px;
-    color: #5c6660;
-    font-size: 15.5px;
-    line-height: 1.65;
-  }
-
-  .founders-portrait {
-    position: relative;
-    width: 100%;
-    max-width: 420px;
-    background: var(--white);
-    border-radius: var(--radius-lg);
-    box-shadow: 0 18px 44px rgba(15,76,73,0.16);
-    overflow: hidden;
-  }
-  .founders-portrait > img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  .founders-portrait .names-plate {
-    margin-top: 0;
-    padding: 14px 12px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: 0.03em;
-    color: var(--teal-900);
-  }
-  .founders-portrait .names-plate .amp {
-    color: var(--saffron-500);
-    font-style: italic;
-    font-weight: 600;
-    font-size: 14px;
-  }
-  .founders-portrait .foundation-tag {
-    display: block;
-    margin-top: 4px;
-    padding: 0 12px 14px;
-    text-align: center;
-    font-size: 11.5px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: #8a8378;
-  }
-  @media (max-width: 560px) {
-    .founders-hero { padding: 48px 0 40px; }
-    .founders-portrait { max-width: 300px; }
-    .founders-portrait .names-plate { font-size: 14px; }
-  }
-
-  /* ============ General attractiveness pass: card lift on hover ============ */
+  /* ============ General attractiveness pass ============ */
   .value-card {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
@@ -356,6 +274,16 @@
     background: radial-gradient(circle at 90% 10%, rgba(212,163,63,0.18), transparent 60%);
     pointer-events: none;
   }
+
+  /* ============ Founder bio: tidy the paragraph rhythm ============ */
+  .split-body p + p { margin-top: 14px; }
+  .split-body p b { color: var(--teal-900); }
+
+  /* ============ Timeline breathing room ============ */
+  .timeline-item + .timeline-item { margin-top: 20px; }
+
+  /* ============ Partner logos row spacing on small screens ============ */
+  .partner-logos { flex-wrap: wrap; }
 </style>
 </head>
 <body>
@@ -366,10 +294,10 @@
       <img src="assets/images/image.png" alt="Ram Pyari Kundan Lal Mahajan NGO logo">
       <span class="brand-text">
         <span class="full">Ram Pyari Kundan Lal Mahajan</span>
-<span class="tag">Memorial Foundation(R.K.M.M.F)</span> 
+        <span class="tag">Memorial Foundation (R.K.M.M.F)</span>
       </span>
     </a>
-           <nav class="nav-links" id="nav-links">
+    <nav class="nav-links" id="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html" aria-current="page">About Us</a>
       <a href="programs.html">Our Programs</a>
@@ -393,28 +321,17 @@
   </div>
 </section>
 
-<!-- ============ FOUNDATION NAMESAKES: Ram Pyari & Kundan Lal ============
-     The foundation is literally named after this couple — this section
-     presents their photo and names as the foundation's own identity. -->
-<section class="founders-hero">
-  <div class="container founders-hero-inner">
-    <!-- <span class="eyebrow-pill">The Foundation's Namesake</span> -->
-    <h2><a href="index.html">Ram Pyari Kundan Lal Mahajan</a></h2>
-    <p class="tagline">
-      Every course we teach and every life we touch carries their name —
-      a memorial foundation built to honour their memory and continue
-      their legacy of courage and service.
+<!-- ============ FOUNDATION INTRO: full name, logo, USP ============ -->
+<section class="foundation-intro">
+  <div class="container">
+    <h2 class="full-name">
+      Ram Pyari Kundan Lal Mahajan Memorial Foundation
+      <span class="short">R.K.M.M.F.</span>
+    </h2>
+    <img src="assets/images/image.png" alt="Ram Pyari Kundan Lal Mahajan NGO logo" class="intro-logo">
+    <p class="usp-line">
+      "सत्य से विचार शुद्ध हों, विचारों से कर्म श्रेष्ठ हों, कर्म से सेवा हो और सेवा से समाज की प्रगति हो।"
     </p>
-
-    <div class="founders-portrait">
-      <img src="assets/images/both.jpeg" alt="Kundan Lal and Ram Pyari, namesakes of the foundation">
-      <div class="names-plate">
-        <span>Shri Kundan Lal</span>
-        <span class="amp">&amp;</span>
-        <span>Ram Pyari</span>
-      </div>
-      <span class="foundation-tag">In loving memory</span>
-    </div>
   </div>
 </section>
 
@@ -434,36 +351,10 @@
         <p class="eyebrow">Our Story</p>
         <h2>Building Livelihoods, One Certificate at a Time</h2>
         <p>
-          The Ram Pyari Kundan Lal Mahajan Charitable Trust was founded to honour the memory of Late Shri Kundanlal Mahajan, whose extraordinary courage and selfless sacrifice during the 1947 tribal invasion of Jammu & Kashmir continue to inspire generations.
+          The Ram Pyari Kundan Lal Mahajan Charitable Trust was founded to honour the memory of Late Shri Kundanlal Mahajan, whose extraordinary courage and selfless sacrifice during the 1947 tribal invasion of Jammu &amp; Kashmir continue to inspire generations.
         </p>
-        <p>To carry forward his legacy of service, the Trust established the Ram Pyari Kundan Lal Mahajan Skill Development Centre at Shukartal, Muzaffarnagar. In partnership with Drishti Computer Education and Youth Skill Development & Research Institute, the centre provides free Computer and Sewing & Tailoring courses for youth, women, and economically weaker sections of society.</p>
-        <p>We believe that education and skill development create opportunities, promote self-reliance, and transform lives. Every student we empower is a tribute to the values of courage, compassion, and service that Shri Kundanlal Mahajan embodied.</p>
-        <p class="quote-block">
-          <b>"His courage lives on through every life empowered, every skill learned, and every act of selfless service."</b>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FATHER'S LEGACY ============ -->
-<section class="bg-cream">
-  <div class="container">
-    <div class="split reverse">
-      <div class="split-media">
-        <div class="stacked-photo-frame">
-          <div class="frame-slot">
-            <img src="assets/images/father.png" alt="Shri Kundan Lal Mahajan tribute">
-          </div>
-          <span class="caption">OM Prakash Gupta</span>
-        </div>
-      </div>
-      <div class="split-body">
-        <p class="eyebrow">A Father's Legacy</p>
-        <h2>The Sacrifice That Shaped Our Journey</h2>
-        <p class="quote-block">
-          <b>"His dedication and sacrifice became the foundation upon which we built our lives."</b>
-        </p>
+        <p>To carry forward his legacy of service, the Trust established the Ram Pyari Kundan Lal Mahajan Skill Development Centre at Shukartal, Muzaffarnagar. In partnership with Drishti Computer Education and Youth Skill Development &amp; Research Institute, the centre provides free Computer and Sewing &amp; Tailoring courses for youth, women, and economically weaker sections of society.</p>
+        <p>We believe that education and skill development create opportunities, promote self-reliance, and transform lives. Every student we empower is a tribute to the values of courage, compassion, and service that Shri Kundanlal Mahajan embodied. His courage lives on through every life empowered, every skill learned, and every act of selfless service.</p>
       </div>
     </div>
   </div>
@@ -473,7 +364,7 @@
 <section>
   <div class="container">
     <div class="split">
-       <div class="split-media">
+      <div class="split-media">
         <div class="founder-photo-frame">
           <div class="frame-slot">
             <img src="assets/images/founder.png" alt="NGO founder Ved Prakash Gupta">
@@ -484,18 +375,11 @@
       <div class="split-body">
         <p class="eyebrow">Founder</p>
         <h2>Meet Our Founder</h2>
-        <p>
-I am <b>Ved Prakash Gupta, a native of Ali Beg, District Mirpur (PoK).</b>
-</p>
-
-<p>During the tribal invasion of 1947, my late father, <b>Shri Kundan Lal</b>, made the supreme sacrifice while protecting the honour of a young girl. After his martyrdom, our family came to Delhi as refugees. Through hard work, perseverance, and the support of my elder brother, we rebuilt our lives and ensured that every member of our family was educated and settled.</p>
-
-<p>One day, while sitting quietly in my room, I experienced a profound inner calling to do something meaningful in my father's memory and for the welfare of society. I accepted this as a divine inspiration and a responsibility to dedicate the remaining years of my life to serving others.</p>
-
-<p>With the wholehearted support of my family, I established this charitable trust and our Skill Development Centre, which provides <b>free computer education and sewing training</b> to help youth and women become self-reliant.</p>
-
-<p>I humbly invite everyone to join us in carrying forward the ideals of courage, compassion, sacrifice, and selfless service.</p>
-        </p>
+        <p>I am <b>Ved Prakash Gupta, a native of Ali Beg, District Mirpur (PoK).</b></p>
+        <p>During the tribal invasion of 1947, my late father, <b>Shri Kundan Lal</b>, made the supreme sacrifice while protecting the honour of a young girl. After his martyrdom, our family came to Delhi as refugees. Through hard work, perseverance, and the support of my elder brother, we rebuilt our lives and ensured that every member of our family was educated and settled.</p>
+        <p>One day, while sitting quietly in my room, I experienced a profound inner calling to do something meaningful in my father's memory and for the welfare of society. I accepted this as a divine inspiration and a responsibility to dedicate the remaining years of my life to serving others.</p>
+        <p>With the wholehearted support of my family, I established this charitable trust and our Skill Development Centre, which provides <b>free computer education and sewing training</b> to help youth and women become self-reliant.</p>
+        <p>I humbly invite everyone to join us in carrying forward the ideals of courage, compassion, sacrifice, and selfless service.</p>
         <p>With sincere gratitude,<br>
         <b>Ved Prakash Gupta</b><br>
         <b>Founder Trustee</b></p>
@@ -639,7 +523,7 @@ I am <b>Ved Prakash Gupta, a native of Ali Beg, District Mirpur (PoK).</b>
     </div>
   </div>
   <div class="container footer-bottom">
-    <span>©️ 2026 Ram Pyari Kundan Lal Mahajan NGO. All rights reserved.</span>
+    <span>© 2026 Ram Pyari Kundan Lal Mahajan NGO. All rights reserved.</span>
     <span>Registered Charitable Trust</span>
   </div>
 </footer>

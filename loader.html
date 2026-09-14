@@ -1,47 +1,188 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Loading... | Ram Pyari Kundan Lal Mahajan NGO</title>
 <style>
-  /* Keeps the orange background and centers the logo */
-  body {
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
     margin: 0;
     padding: 0;
-    background-color: #ff9933; /* Orange/Saffron background */
+    min-height: 100%;
+  }
+
+  body {
+    padding: 20px;
+    background: linear-gradient(160deg, #ff9933 0%, #ff7e1f 100%);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full screen height */
-    overflow: hidden;
+    min-height: 100vh;
+    /* Was "overflow: hidden" + "height: 100vh", which clipped the
+       card whenever its content was taller than the screen (common
+       on phones). Allow the page to scroll instead of hiding content. */
+    overflow-y: auto;
+    font-family: 'Segoe UI', 'Noto Sans Devanagari', Arial, sans-serif;
+  }
+
+  .splash-wrapper {
+    max-width: 640px;
+    width: 100%;
+    text-align: center;
+    margin: auto; /* keeps it centered even when the page scrolls */
+    animation: fadeInUp 1s ease-out;
   }
 
   /* Logo styling and pulse animation */
   .splash-logo {
-    width: 180px; /* Adjust if you want the logo bigger or smaller */
+    width: 160px;
     height: auto;
-    animation: splashPulse 1.5s infinite ease-in-out;
+    border-radius: 50%;
+    background: #fff;
+    padding: 8px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    animation: splashPulse 1.8s infinite ease-in-out;
   }
 
   @keyframes splashPulse {
-    0% { transform: scale(0.95); opacity: 0.9; }
-    50% { transform: scale(1.05); opacity: 1; }
-    100% { transform: scale(0.95); opacity: 0.9; }
+    0% { transform: scale(0.96); opacity: 0.9; }
+    50% { transform: scale(1.04); opacity: 1; }
+    100% { transform: scale(0.96); opacity: 0.9; }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .org-name {
+    margin: 18px 0 6px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  }
+
+  .org-sub {
+    margin: 0 0 22px;
+    font-size: 14px;
+    color: #fff3e0;
+    letter-spacing: 1px;
+  }
+
+  .info-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 18px;
+    padding: 22px 24px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+    text-align: right;
+    direction: rtl;
+  }
+
+  .info-card h2 {
+    margin: 0 0 14px;
+    font-size: 19px;
+    color: #c2410c;
+    text-align: center;
+  }
+
+  .values-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    direction: ltr;
+  }
+
+  .value-chip {
+    background: #138a36;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .info-card p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.9;
+    color: #333;
+  }
+
+  .loader-bar-track {
+    margin: 22px auto 6px;
+    width: 100%;
+    max-width: 260px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .loader-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: #138a36;
+    border-radius: 10px;
+    animation: loadFill 6s linear forwards;
+  }
+
+  @keyframes loadFill {
+    from { width: 0%; }
+    to { width: 100%; }
+  }
+
+  .loading-text {
+    color: #fff8f0;
+    font-size: 13px;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
   }
 </style>
 </head>
 <body>
 
-  <!-- Your Logo -->
-  <img src="assets/images/image.png" alt="NGO Logo" class="splash-logo">
+  <div class="splash-wrapper">
+    <img src="assets/images/image.png" alt="NGO Logo" class="splash-logo">
+
+    <div class="org-name">राम प्यारी कुन्दन लाल महाजन मेमोरियल फाउन्डेसन</div>
+    <div class="org-sub">R.K.M.M.F.</div>
+
+    <div class="info-card">
+      <!-- <h2>सत्य • सेवा • प्रगति • विचार • कर्म</h2> -->
+
+      <div class="values-row">
+        <span class="value-chip">सत्य</span>
+        <span class="value-chip">सेवा</span>
+        <span class="value-chip">प्रगति</span>
+        <span class="value-chip">विचार</span>
+        <span class="value-chip">कर्म</span>
+      </div>
+
+      <p>
+        हमारा दीपक ज्ञान और आशा के प्रकाश का प्रतीक है, जो अंधकार को दूर करता है।
+        सत्यनिष्ठ विचार से निःस्वार्थ सेवा और कर्म की ओर बढ़ते हुए हम समाज में
+        प्रगति और सकारात्मकता का प्रसार करने हेतु प्रतिबद्ध हैं।
+      </p>
+    </div>
+
+    <div class="loader-bar-track">
+      <div class="loader-bar-fill"></div>
+    </div>
+    <div class="loading-text">कृपया प्रतीक्षा करें... लोड हो रहा है</div>
+  </div>
 
   <script>
-    // 5500 milliseconds = 5.5 seconds
-    // After the time is up, this redirects the browser to your main website page
+    // Redirects to the main website after the splash screen finishes
     setTimeout(function() {
       window.location.href = 'index.html';
-    }, 2000);
+    }, 6000);
   </script>
 
 </body>
