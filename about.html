@@ -53,21 +53,10 @@
     color: var(--teal-900);
     font-weight: 600;
   }
-
-  /* Pull-quote style for tribute/legacy quotes, matches site tokens */
-  .quote-block {
-    position: relative;
-    margin-top: 22px !important;
-    padding: 20px 24px 20px 28px;
-    background: var(--cream-100);
-    border-left: 3px solid var(--saffron-500);
-    border-radius: var(--radius-sm);
-  }
-  .quote-block b {
-    color: var(--teal-900);
-    font-style: italic;
-    font-size: 16.5px;
-    line-height: 1.6;
+  @media (max-width: 560px) {
+    .foundation-intro { padding: 40px 0 34px; }
+    .foundation-intro .intro-logo { width: 88px; height: 88px; margin-bottom: 20px; }
+    .foundation-intro .usp-line { padding: 18px 20px; font-size: 15px; }
   }
 
   /* ============ Names row under the Our Story photo ============ */
@@ -112,6 +101,17 @@
     border-radius: 50%;
     background: var(--saffron-500);
   }
+  @media (max-width: 560px) {
+    .name-row {
+      flex-direction: row;
+      gap: 6px;
+      padding: 10px 8px;
+    }
+    .name-row span {
+      letter-spacing: 0.02em;
+    }
+    .name-row span:not(:last-child) { padding-right: 7px; }
+  }
 
   /* ============ Two-photo stacked frame (Father's Legacy) ============ */
   .stacked-photo-frame {
@@ -148,8 +148,13 @@
     color: var(--teal-900);
     letter-spacing: 0.02em;
   }
+  @media (max-width: 560px) {
+    .stacked-photo-frame { padding: 8px; gap: 8px; }
+    .stacked-photo-frame .caption { font-size: 13.5px; }
+  }
 
-  /* ============ Founder photo (single) ============ */
+  /* ============ Founder photo (single) — hosts an overlapping inset
+     photo popping out of the bottom-right corner ============ */
   .founder-photo-frame {
     position: relative;
     padding: 10px;
@@ -158,8 +163,8 @@
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-card);
     overflow: visible;
-    margin-bottom: 70px;
-    isolation: isolate;
+    margin-bottom: 70px; /* reserve space for the part hanging outside */
+    isolation: isolate;  /* keep this card's own stacking context clean */
   }
   .split-media {
     overflow: visible !important;
@@ -184,6 +189,10 @@
     font-size: 15px;
     color: var(--teal-900);
     letter-spacing: 0.02em;
+  }
+  @media (max-width: 560px) {
+    .founder-photo-frame { padding: 8px; }
+    .founder-photo-frame .caption { font-size: 13.5px; margin-top: 10px; }
   }
 
   /* ============ Overlapping inset photo (Shri Kundan Lal) ============ */
@@ -230,125 +239,20 @@
     color: var(--teal-900);
     white-space: nowrap;
   }
-
-  /* ============ Foundation hero header (Ram Pyari & Kundan Lal) ============ */
-  .founders-hero {
-    position: relative;
-    padding: 64px 0 56px;
-    background:
-      radial-gradient(circle at 15% 20%, rgba(212,163,63,0.10), transparent 55%),
-      radial-gradient(circle at 85% 80%, rgba(15,76,73,0.08), transparent 55%),
-      var(--cream-100);
-    overflow: hidden;
+  @media (max-width: 880px) {
+    .founder-photo-frame { margin-bottom: 52px; }
+    .inline-photo-card { right: -20px; bottom: -44px; width: 30%; }
   }
-  .founders-hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: repeating-linear-gradient(135deg, rgba(15,76,73,0.035) 0 2px, transparent 2px 26px);
-    pointer-events: none;
-  }
-  .founders-hero-inner {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    max-width: 720px;
-    margin: 0 auto;
-  }
-  .founders-hero .eyebrow-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 7px 18px;
-    background: var(--white);
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    box-shadow: var(--shadow-card);
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 12.5px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--saffron-500);
-    margin-bottom: 18px;
-  }
-  .founders-hero .eyebrow-pill::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--saffron-500);
-  }
-  .founders-hero h2 {
-    margin: 0 0 6px;
-    font-size: clamp(26px, 4vw, 38px);
-    line-height: 1.2;
-  }
-  .founders-hero h2 a {
-    color: var(--teal-900);
-    text-decoration: none;
-    background-image: linear-gradient(var(--saffron-500), var(--saffron-500));
-    background-repeat: no-repeat;
-    background-position: 0 100%;
-    background-size: 0% 2px;
-    transition: background-size 0.25s ease;
-    padding-bottom: 2px;
-  }
-  .founders-hero h2 a:hover {
-    background-size: 100% 2px;
-  }
-  .founders-hero .tagline {
-    max-width: 480px;
-    margin: 0 auto 30px;
-    color: #5c6660;
-    font-size: 15.5px;
-    line-height: 1.65;
-  }
-
-  .founders-portrait {
-    position: relative;
-    width: 100%;
-    max-width: 420px;
-    background: var(--white);
-    border-radius: var(--radius-lg);
-    box-shadow: 0 18px 44px rgba(15,76,73,0.16);
-    overflow: hidden;
-  }
-  .founders-portrait > img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  .founders-portrait .names-plate {
-    margin-top: 0;
-    padding: 14px 12px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: 0.03em;
-    color: var(--teal-900);
-  }
-  .founders-portrait .names-plate .amp {
-    color: var(--saffron-500);
-    font-style: italic;
-    font-weight: 600;
-    font-size: 14px;
-  }
-  .founders-portrait .foundation-tag {
-    display: block;
-    margin-top: 4px;
-    padding: 0 12px 14px;
-    text-align: center;
-    font-size: 11.5px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: #8a8378;
+  @media (max-width: 560px) {
+    .founder-photo-frame { margin-bottom: 44px; }
+    .inline-photo-card {
+      right: -12px;
+      bottom: -36px;
+      width: 36%;
+      max-width: 130px;
+      padding: 4px;
+    }
+    .inline-photo-card .caption { font-size: 10px; margin-top: 4px; }
   }
 
   /* ============ General attractiveness pass ============ */
@@ -417,6 +321,7 @@
   </div>
 </section>
 
+<!-- ============ FOUNDATION INTRO: full name, logo, USP ============ -->
 <section class="foundation-intro">
   <div class="container">
     <h2 class="full-name">
@@ -430,25 +335,7 @@
   </div>
 </section>
 
-<section class="founders-hero">
-  <div class="container founders-hero-inner">
-    <h2><a href="index.html">Ram Pyari Kundan Lal Mahajan</a></h2>
-    <p class="tagline">
-      Every course we teach and every life we touch carries their name — a memorial foundation built to honour their memory and continue their legacy of courage and service.
-    </p>
-
-    <div class="founders-portrait">
-      <img src="assets/images/both.jpeg" alt="Kundan Lal and Ram Pyari, namesakes of the foundation">
-      <div class="names-plate">
-        <span>Shri Kundan Lal</span>
-        <span class="amp">&amp;</span>
-        <span>Ram Pyari</span>
-      </div>
-      <span class="foundation-tag">In loving memory</span>
-    </div>
-  </div>
-</section>
-
+<!-- ============ ABOUT US CONTENT ============ -->
 <section>
   <div class="container">
     <div class="split">
@@ -473,28 +360,7 @@
   </div>
 </section>
 
-<section class="bg-cream">
-  <div class="container">
-    <div class="split reverse">
-      <div class="split-media">
-        <div class="stacked-photo-frame">
-          <div class="frame-slot">
-            <img src="assets/images/father.png" alt="Shri Kundan Lal Mahajan tribute">
-          </div>
-          <span class="caption">OM Prakash Gupta</span>
-        </div>
-      </div>
-      <div class="split-body">
-        <p class="eyebrow">A Father's Legacy</p>
-        <h2>The Sacrifice That Shaped Our Journey</h2>
-        <p class="quote-block">
-          <b>"His dedication and sacrifice became the foundation upon which we built our lives."</b>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- ============ OUR FOUNDER ============ -->
 <section>
   <div class="container">
     <div class="split">
@@ -522,6 +388,7 @@
   </div>
 </section>
 
+<!-- ============ MISSION / VISION / VALUES ============ -->
 <section class="bg-cream">
   <div class="container">
     <div class="section-head">
@@ -548,6 +415,7 @@
   </div>
 </section>
 
+<!-- ============ DRISHTI PARTNERSHIP (detailed) ============ -->
 <section id="drishti">
   <div class="container">
     <div class="partner-banner">
@@ -572,6 +440,7 @@
   </div>
 </section>
 
+<!-- ============ JOURNEY / TIMELINE ============ -->
 <section class="bg-cream">
   <div class="container">
     <div class="split">
@@ -654,7 +523,7 @@
     </div>
   </div>
   <div class="container footer-bottom">
-    <span>© 2026 Ram Pyari Kundan Lal Mahajan NGO. All rights reserved.</span>
+    <span>©️ 2026 Ram Pyari Kundan Lal Mahajan NGO. All rights reserved.</span>
     <span>Registered Charitable Trust</span>
   </div>
 </footer>
