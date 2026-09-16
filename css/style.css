@@ -616,7 +616,7 @@ body.menu-open .nav-backdrop { opacity: 1; visibility: visible; }
    ========================================================= */
 .memorial-section {
   background: var(--cream-100);
-  padding: 72px 0 88px;
+  padding: 56px 0 88px;
 }
 
 .memorial-card {
@@ -658,6 +658,11 @@ body.menu-open .nav-backdrop { opacity: 1; visibility: visible; }
 }
 
 .memorial-copy strong {
+  color: var(--ink-900);
+  font-weight: 600;
+}
+
+.memorial-copy strong2 {
   color: var(--white);
   font-weight: 600;
 }
