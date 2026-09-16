@@ -658,7 +658,7 @@ body.menu-open .nav-backdrop { opacity: 1; visibility: visible; }
 }
 
 .memorial-copy strong {
-  color: var(--ink-900);
+  color: var(--white);
   font-weight: 600;
 }
 
